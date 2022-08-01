@@ -40,4 +40,36 @@ class Example extends BaseController
     echo "<pre>";
     print_r($result);
   }
+
+  public function sendtemplate()
+  {
+    $wablas = new Wablas();
+    $data  = [
+        'phone' => '6281218xxxxxx',
+        'message'=> [
+            'title' => [
+                'type' => 'image', //text,image,document,video
+                'content' => 'https://cdn-asset.jawapos.com/wp-content/uploads/2019/01/keluarga-pawang-di-jepang-maafkan-macan-putih-yang-membunuhnya_m_.jpg',
+            ],
+            'buttons' => [
+                'url' => [
+                    'display' => 'wablas.com',
+                    'link' => 'https://wablas.com',
+                ],
+                'call' => [
+                    'display' => 'contact us',
+                    'link' => '081223644660',
+                ],
+                'quickReply' => ["reply 1","reply 2"],
+            ],
+            'content' => 'sending template message...',
+            'footer' => 'footer template here',
+        ],
+    ];
+
+    $result = $wablas->sendTemplate($data);
+
+    echo "<pre>";
+    print_r($result);
+  }
 }

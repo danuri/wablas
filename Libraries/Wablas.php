@@ -77,6 +77,13 @@ class Wablas
     return $info;
   }
 
+  public function sendTemplate($params)
+  {
+    $info = $this->post($this->url.'/api/send-video', $params);
+
+    return $info;
+  }
+
   public function get($url)
   {
     $client = \Config\Services::curlrequest();
